@@ -25,6 +25,11 @@ void Duck::swim()
 	printToConsole("Swim, swim, swim.");
 }
 
+void Duck::fly()
+{
+	printToConsole("*flies* whooshh");
+}
+
 /* Mallard duck */
 
 void MallardDuck::display()

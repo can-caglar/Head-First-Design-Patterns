@@ -5,6 +5,7 @@ class Duck
 public:
 	void quack();
 	void swim();
+	void fly();
 	virtual void display();
 };
 
