@@ -10,39 +10,39 @@ static void printToConsole(const char* str)
 
 /* Duck */
 
-void Duck::quack()
+void Duck::quack() const
 {
 	printToConsole("Quack!");
 }
 
-void Duck::display()
+void Duck::display() const
 {
 	printToConsole("Look, I'm a duck!");
 }
 
-void Duck::swim()
+void Duck::swim() const
 {
 	printToConsole("Swim, swim, swim.");
 }
 
-void Duck::fly()
+void Duck::fly() const
 {
 	printToConsole("*flies* whooshh");
 }
 
 /* Mallard duck */
 
-void MallardDuck::display()
+void MallardDuck::display() const
 {
 	printToConsole("I look like a Mallard");
 }
 
-void RubberDuck::display()
+void RubberDuck::display() const
 {
 	printToConsole("I look like a Rubber duck!");
 }
 
-void ReadheadDuck::display()
+void ReadheadDuck::display() const
 {
 	printToConsole("I look like a Readhead duck!");
 }
