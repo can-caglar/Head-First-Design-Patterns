@@ -21,9 +21,15 @@
     <ClCompile Include="SimUDuck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DuckBehaviours.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimUDuck.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DuckBehaviours.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
