@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+
 #include "SimUDuck.h"
+#include "DuckCall.h"
 
 void printToConsole(const char* str);
 
@@ -24,6 +26,10 @@ int main(void)
 		duck->quack();
 		printToConsole("\n");
 	}
+
+	// Making a "duck call" hunter's device
+	DuckCall huntersDuckCall;
+	huntersDuckCall.mimic();
 }
 
 // Helper functions
