@@ -1,18 +1,43 @@
+
 #include <iostream>
 #include <vector>
 #include <memory>
 
+// Strategy pattern includes
 #include "SimUDuck.h"
 #include "DuckCall.h"
 
+// Helper functions
 void printToConsole(const char* str);
+
+// Example runner functions
+static void strategyPatternExample();
 
 int main(void)
 {
 	std::cout << "Application started.\n\n";
 
+	strategyPatternExample();
+}
+
+// Helper functions
+void printToConsole(const char* str)
+{
+	std::cout << str << std::endl;
+}
+
+// Private functions
+
+/*
+The Strategy Pattern defines a family of algorithms,
+encapsulates each one, and makes them interchangeable.
+Strategy lets the algorithm vary independently from
+clients that use it.
+*/
+static void strategyPatternExample()
+{
 	std::vector<std::shared_ptr<Duck>> ducks;
-	
+
 	ducks.push_back(std::make_unique<Duck>(std::make_unique<Quack>(), std::make_unique<FlyWithWings>()));
 	ducks.push_back(std::make_unique<MallardDuck>(std::make_unique<Quack>(), std::make_unique<FlyWithWings>()));
 	ducks.push_back(std::make_unique<ReadheadDuck>(std::make_unique<Quack>(), std::make_unique<FlyWithWings>()));
@@ -30,10 +55,4 @@ int main(void)
 	// Making a "duck call" hunter's device
 	DuckCall huntersDuckCall;
 	huntersDuckCall.mimic();
-}
-
-// Helper functions
-void printToConsole(const char* str)
-{
-	std::cout << str << std::endl;
 }

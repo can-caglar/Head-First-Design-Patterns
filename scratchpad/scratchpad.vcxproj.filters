@@ -13,30 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\StrategyPattern">
+      <UniqueIdentifier>{15f2c1af-c9db-435b-8d85-9ab714d48a24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DuckBehaviours.cpp">
+      <Filter>Source Files\StrategyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="DuckCall.cpp">
+      <Filter>Source Files\StrategyPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="SimUDuck.cpp">
+      <Filter>Source Files\StrategyPattern</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SimUDuck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DuckBehaviours.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DuckCall.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimUDuck.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="DuckBehaviours.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\StrategyPattern</Filter>
     </ClInclude>
     <ClInclude Include="DuckCall.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\StrategyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="SimUDuck.h">
+      <Filter>Source Files\StrategyPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
