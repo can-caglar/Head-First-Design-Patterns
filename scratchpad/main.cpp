@@ -12,6 +12,7 @@ void printToConsole(const char* str);
 
 // Example runner functions
 static void strategyPatternExample();
+static void observerPatternExample();
 
 int main(void)
 {
@@ -55,4 +56,14 @@ static void strategyPatternExample()
 	// Making a "duck call" hunter's device
 	DuckCall huntersDuckCall;
 	huntersDuckCall.mimic();
+}
+
+/* 
+The Observer Pattern defines a one - to - many
+dependency between objects so that when one
+object changes state, all of its dependents are
+notified and updated automatically.
+*/
+void observerPatternExample()
+{
 }

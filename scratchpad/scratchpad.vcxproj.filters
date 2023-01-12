@@ -16,6 +16,9 @@
     <Filter Include="Source Files\StrategyPattern">
       <UniqueIdentifier>{15f2c1af-c9db-435b-8d85-9ab714d48a24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ObserverPattern">
+      <UniqueIdentifier>{ed01b438-04e4-4b38-b8bb-03debe88f2c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="SimUDuck.h">
       <Filter>Source Files\StrategyPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherData.h">
+      <Filter>Source Files\ObserverPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
