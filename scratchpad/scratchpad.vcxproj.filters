@@ -33,6 +33,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WeatherData.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DuckBehaviours.h">
@@ -45,6 +51,9 @@
       <Filter>Source Files\StrategyPattern</Filter>
     </ClInclude>
     <ClInclude Include="WeatherData.h">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
       <Filter>Source Files\ObserverPattern</Filter>
     </ClInclude>
   </ItemGroup>

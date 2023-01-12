@@ -7,6 +7,9 @@
 #include "SimUDuck.h"
 #include "DuckCall.h"
 
+// Observer pattern includes
+#include "WeatherData.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -19,6 +22,7 @@ int main(void)
 	std::cout << "Application started.\n\n";
 
 	strategyPatternExample();
+	observerPatternExample();
 }
 
 // Helper functions
@@ -66,4 +70,13 @@ notified and updated automatically.
 */
 void observerPatternExample()
 {
+	std::vector<std::unique_ptr<IDisplay>> displays;
+
+	displays.push_back(std::make_unique<DisplayCurrentConditions>());
+	displays.push_back(std::make_unique<DisplaySimpleForecast>());
+	displays.push_back(std::make_unique<DisplayWeatherStats>());
+
+	WeatherData weatherBaseStation(displays);
+
+	weatherBaseStation.measurementsChanged();
 }

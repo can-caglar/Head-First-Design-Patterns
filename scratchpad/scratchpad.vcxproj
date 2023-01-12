@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Display.cpp" />
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="WeatherData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Display.h" />
     <ClInclude Include="DuckBehaviours.h" />
     <ClInclude Include="DuckCall.h" />
     <ClInclude Include="SimUDuck.h" />
