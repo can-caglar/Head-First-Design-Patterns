@@ -130,6 +130,7 @@
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
+    <ClCompile Include="IObserver.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimUDuck.cpp" />
     <ClCompile Include="WeatherData.cpp" />
@@ -138,6 +139,8 @@
     <ClInclude Include="Display.h" />
     <ClInclude Include="DuckBehaviours.h" />
     <ClInclude Include="DuckCall.h" />
+    <ClInclude Include="IObserver.h" />
+    <ClInclude Include="ISubject.h" />
     <ClInclude Include="SimUDuck.h" />
     <ClInclude Include="WeatherData.h" />
   </ItemGroup>

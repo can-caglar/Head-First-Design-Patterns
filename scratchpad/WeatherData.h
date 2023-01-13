@@ -1,19 +1,24 @@
 #pragma once
 
-#include "Display.h"
-#include <vector>
-#include <memory>
+#include "ISubject.h"
+#include <unordered_set>
 
-class WeatherData
+class WeatherData : public ISubject
 {
 public:
-	WeatherData() = delete;
-	WeatherData(std::vector<std::unique_ptr<IDisplay>>& displays);
+	WeatherData() : _temp(0), _humidity(0), _pressure(0) {};
+	void addObserver(IObserver* observer) override;
+	void removeObserver(IObserver* observer) override;
+	void updateAllObservers() override;
+
 	float getTemperature() const;
 	float getHumidity() const;
 	float getPressure() const;
-	// called whenever weather measurements have been updated
-	void measurementsChanged() const;	
+	void setMeasurements(float temp, float humidity, float pressure);
 private:
-	std::vector<std::unique_ptr<IDisplay>> _displays;
+	void measurementsChanged();  // called whenever weather measurements have been updated
+	std::unordered_set<IObserver*> _observers;
+	float _temp;
+	float _humidity;
+	float _pressure;
 };

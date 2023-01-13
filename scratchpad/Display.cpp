@@ -1,6 +1,12 @@
 #include "Display.h"
 #include <iostream>
 
+DisplayCurrentConditions::DisplayCurrentConditions(WeatherData* weatherData)
+{
+    _weatherData = weatherData;
+    _weatherData->addObserver(this);
+}
+
 void DisplayCurrentConditions::display(float temp, float humi, float pres)
 {
     std::cout << "--- Current Conditions Display ---" << std::endl;
@@ -8,6 +14,19 @@ void DisplayCurrentConditions::display(float temp, float humi, float pres)
     std::cout << "--- HUMI: " << humi << std::endl;
     std::cout << "--- PRES: " << pres << std::endl;
     std::cout << std::endl;
+}
+
+void DisplayCurrentConditions::update()
+{
+    // new weather data
+    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
+}
+
+DisplayWeatherStats::DisplayWeatherStats(WeatherData* weatherData) : 
+    _totalTemp(0), _tempReadings(0), _minTemp(std::numeric_limits<float>::infinity()), _maxTemp(-std::numeric_limits<float>::infinity())
+{
+    _weatherData = weatherData;
+    _weatherData->addObserver(this);
 }
 
 void DisplayWeatherStats::display(float temp, float humi, float pres)
@@ -32,6 +51,12 @@ void DisplayWeatherStats::display(float temp, float humi, float pres)
     std::cout << std::endl;
 }
 
+void DisplayWeatherStats::update()
+{
+    // new weather data
+    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
+}
+
 void DisplaySimpleForecast::display(float temp, float humi, float pres)
 {
     float tempTomorrow = (temp) + (humi > 5 ? 2 : -2);
@@ -39,5 +64,17 @@ void DisplaySimpleForecast::display(float temp, float humi, float pres)
     std::cout << "--- Simple Forecast  ---" << std::endl;
     std::cout << "--- Temp tomorrow: " << tempTomorrow << std::endl;
     std::cout << std::endl;
+}
+
+void DisplaySimpleForecast::update()
+{
+    // new weather data
+    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
+}
+
+DisplaySimpleForecast::DisplaySimpleForecast(WeatherData* weatherData)
+{
+    _weatherData = weatherData;
+    _weatherData->addObserver(this);
 }
 

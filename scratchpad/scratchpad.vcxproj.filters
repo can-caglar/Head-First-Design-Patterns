@@ -39,6 +39,9 @@
     <ClCompile Include="Display.cpp">
       <Filter>Source Files\ObserverPattern</Filter>
     </ClCompile>
+    <ClCompile Include="IObserver.cpp">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DuckBehaviours.h">
@@ -54,6 +57,12 @@
       <Filter>Source Files\ObserverPattern</Filter>
     </ClInclude>
     <ClInclude Include="Display.h">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ISubject.h">
+      <Filter>Source Files\ObserverPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
       <Filter>Source Files\ObserverPattern</Filter>
     </ClInclude>
   </ItemGroup>

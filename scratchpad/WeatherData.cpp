@@ -5,37 +5,49 @@
 
 /* Weather data */
 
-WeatherData::WeatherData(std::vector<std::unique_ptr<IDisplay>>& displays)
+void WeatherData::addObserver(IObserver* observer)
 {
-    for (std::unique_ptr<IDisplay>& display : displays)
+    _observers.insert(observer);
+}
+
+void WeatherData::removeObserver(IObserver* observer)
+{
+    _observers.erase(observer);
+}
+
+void WeatherData::updateAllObservers()
+{
+    for (IObserver* observer : _observers)
     {
-        _displays.push_back(std::move(display));    // take ownership of the pointers
+        observer->update();
     }
 }
 
 float WeatherData::getTemperature() const
 {
-    return 1.0f;
+    return _temp;
 }
 
 float WeatherData::getHumidity() const
 {
-    return 4.0f;
+    return _humidity;
 }
 
 float WeatherData::getPressure() const
 {
-    return 7.0f;
+    return _pressure;
 }
 
-void WeatherData::measurementsChanged() const
+void WeatherData::setMeasurements(float temp, float humidity, float pressure)
 {
-    float temp = getTemperature();
-    float humidity = getHumidity();
-    float pressure = getPressure();
+    _temp = temp;
+    _humidity = humidity;
+    _pressure = pressure;
 
-    for (const std::unique_ptr<IDisplay>& ptrDisplay : _displays)
-    {
-        ptrDisplay->display(temp, humidity, pressure);
-    }
+    measurementsChanged();
+}
+
+void WeatherData::measurementsChanged()
+{
+    updateAllObservers();
 }

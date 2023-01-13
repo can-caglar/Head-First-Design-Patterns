@@ -9,6 +9,7 @@
 
 // Observer pattern includes
 #include "WeatherData.h"
+#include "Display.h"
 
 // Helper functions
 void printToConsole(const char* str);
@@ -70,13 +71,14 @@ notified and updated automatically.
 */
 void observerPatternExample()
 {
-	std::vector<std::unique_ptr<IDisplay>> displays;
+	WeatherData* weatherData = new WeatherData();
 
-	displays.push_back(std::make_unique<DisplayCurrentConditions>());
-	displays.push_back(std::make_unique<DisplaySimpleForecast>());
-	displays.push_back(std::make_unique<DisplayWeatherStats>());
+	IDisplay* displayCurrentConditions = new DisplayCurrentConditions(weatherData);
+	IDisplay* displaySimpleForecast = new DisplaySimpleForecast(weatherData);
+	IDisplay* displayWeatherStats = new DisplayWeatherStats(weatherData);
 
-	WeatherData weatherBaseStation(displays);
-
-	weatherBaseStation.measurementsChanged();
+	weatherData->setMeasurements(10, 0.4f, 2.0f);
+	weatherData->setMeasurements(13, 1, 2.0f);
+	weatherData->setMeasurements(12, 0.4f, 1.7f);
+	weatherData->setMeasurements(12, 0.9f, 2.1f);
 }
