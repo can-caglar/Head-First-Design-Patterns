@@ -3,13 +3,14 @@
 
 IDisplay::IDisplay(WeatherData* weatherData)
 {
-    _weatherData = weatherData;
-    _weatherData->addObserver(this);
+    weatherData->addObserver(this);
 }
 
-void IDisplay::update()
+void IDisplay::update(WeatherData* subjectGivingNotification)
 {
-    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
+    display(subjectGivingNotification->getTemperature(), 
+            subjectGivingNotification->getHumidity(), 
+            subjectGivingNotification->getPressure());
 }
 
 void DisplayCurrentConditions::display(float temp, float humi, float pres)

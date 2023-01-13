@@ -10,10 +10,7 @@ public:
 	IDisplay() = delete;
 	IDisplay(WeatherData* weatherData);
 	virtual void display(float temp, float humi, float pres) = 0;
-	void update() override;
-
-protected:
-	WeatherData* _weatherData;
+	void update(WeatherData* subjectGivingNotification) override;
 };
 
 class DisplayCurrentConditions : public IDisplay

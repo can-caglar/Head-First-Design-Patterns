@@ -19,7 +19,7 @@ void WeatherData::updateAllObservers()
 {
     for (IObserver* observer : _observers)
     {
-        observer->update();
+        observer->update(this);
     }
 }
 
