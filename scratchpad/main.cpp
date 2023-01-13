@@ -77,6 +77,8 @@ void observerPatternExample()
 	IDisplay* displaySimpleForecast = new DisplaySimpleForecast(weatherData);
 	IDisplay* displayWeatherStats = new DisplayWeatherStats(weatherData);
 
+	IDisplay* fakeHeatIndex = new DisplayHeatIndex(weatherData);	// "retrofitted"
+
 	weatherData->setMeasurements(10, 0.4f, 2.0f);
 	weatherData->setMeasurements(13, 1, 2.0f);
 	weatherData->setMeasurements(12, 0.4f, 1.7f);

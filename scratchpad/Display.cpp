@@ -1,10 +1,15 @@
 #include "Display.h"
 #include <iostream>
 
-DisplayCurrentConditions::DisplayCurrentConditions(WeatherData* weatherData)
+IDisplay::IDisplay(WeatherData* weatherData)
 {
     _weatherData = weatherData;
     _weatherData->addObserver(this);
+}
+
+void IDisplay::update()
+{
+    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
 }
 
 void DisplayCurrentConditions::display(float temp, float humi, float pres)
@@ -14,19 +19,6 @@ void DisplayCurrentConditions::display(float temp, float humi, float pres)
     std::cout << "--- HUMI: " << humi << std::endl;
     std::cout << "--- PRES: " << pres << std::endl;
     std::cout << std::endl;
-}
-
-void DisplayCurrentConditions::update()
-{
-    // new weather data
-    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
-}
-
-DisplayWeatherStats::DisplayWeatherStats(WeatherData* weatherData) : 
-    _totalTemp(0), _tempReadings(0), _minTemp(std::numeric_limits<float>::infinity()), _maxTemp(-std::numeric_limits<float>::infinity())
-{
-    _weatherData = weatherData;
-    _weatherData->addObserver(this);
 }
 
 void DisplayWeatherStats::display(float temp, float humi, float pres)
@@ -51,12 +43,6 @@ void DisplayWeatherStats::display(float temp, float humi, float pres)
     std::cout << std::endl;
 }
 
-void DisplayWeatherStats::update()
-{
-    // new weather data
-    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
-}
-
 void DisplaySimpleForecast::display(float temp, float humi, float pres)
 {
     float tempTomorrow = (temp) + (humi > 5 ? 2 : -2);
@@ -66,15 +52,9 @@ void DisplaySimpleForecast::display(float temp, float humi, float pres)
     std::cout << std::endl;
 }
 
-void DisplaySimpleForecast::update()
+void DisplayHeatIndex::display(float temp, float humi, float pres)
 {
-    // new weather data
-    display(_weatherData->getTemperature(), _weatherData->getHumidity(), _weatherData->getPressure());
+    std::cout << "--- DisplayHeatIndex  ---" << std::endl;
+    std::cout << "--- Fake Heat Index: " << temp*humi*pres<< std::endl;
+    std::cout << std::endl;
 }
-
-DisplaySimpleForecast::DisplaySimpleForecast(WeatherData* weatherData)
-{
-    _weatherData = weatherData;
-    _weatherData->addObserver(this);
-}
-

@@ -3,42 +3,53 @@
 #include "IObserver.h"
 #include "WeatherData.h"
 
-class IDisplay
-{
-public:
-	virtual void display(float temp, float humi, float pres) = 0;
-};
 
-class DisplayCurrentConditions : public IDisplay, public IObserver
+class IDisplay: public IObserver
 {
 public:
-	DisplayCurrentConditions(WeatherData* weatherData);
-	void display(float temp, float humi, float pres) override;
+	IDisplay() = delete;
+	IDisplay(WeatherData* weatherData);
+	virtual void display(float temp, float humi, float pres) = 0;
 	void update() override;
-private:
+
+protected:
 	WeatherData* _weatherData;
 };
 
-class DisplayWeatherStats : public IDisplay, public IObserver
+class DisplayCurrentConditions : public IDisplay
 {
 public:
-	DisplayWeatherStats(WeatherData* weatherData);
+	DisplayCurrentConditions(WeatherData* weatherData) : IDisplay(weatherData) {};
 	void display(float temp, float humi, float pres) override;
-	void update() override;
+};
+
+class DisplayWeatherStats : public IDisplay
+{
+public:
+	DisplayWeatherStats(WeatherData* weatherData) : 
+		_totalTemp(0), 
+		_tempReadings(0), 
+		_minTemp(std::numeric_limits<float>::infinity()), 
+		_maxTemp(-std::numeric_limits<float>::infinity()), 
+		IDisplay(weatherData) {};
+	void display(float temp, float humi, float pres) override;
 private:
 	float _totalTemp;
 	float _tempReadings;
 	float _minTemp;
 	float _maxTemp;
-	WeatherData* _weatherData;
 };
 
-class DisplaySimpleForecast : public IDisplay, public IObserver
+class DisplaySimpleForecast : public IDisplay
 {
 public:
-	DisplaySimpleForecast(WeatherData* weatherData);
+	DisplaySimpleForecast(WeatherData* weatherData) : IDisplay(weatherData) {};
 	void display(float temp, float humi, float pres) override;
-	void update() override;
-private:
-	WeatherData* _weatherData;
+};
+
+class DisplayHeatIndex : public IDisplay
+{
+public:
+	DisplayHeatIndex(WeatherData* weatherData) : IDisplay(weatherData) {};
+	void display(float temp, float humi, float pres) override;
 };
