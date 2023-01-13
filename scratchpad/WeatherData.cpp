@@ -19,7 +19,7 @@ void WeatherData::updateAllObservers()
 {
     for (IObserver* observer : _observers)
     {
-        observer->update(this);
+        observer->update();
     }
 }
 
@@ -38,11 +38,17 @@ float WeatherData::getPressure() const
     return _pressure;
 }
 
-void WeatherData::setMeasurements(float temp, float humidity, float pressure)
+float WeatherData::getWindSpeed() const
+{
+    return _windSpeed;
+}
+
+void WeatherData::setMeasurements(float temp, float humidity, float pressure, float windspeed)
 {
     _temp = temp;
     _humidity = humidity;
     _pressure = pressure;
+    _windSpeed = windspeed;
 
     measurementsChanged();
 }

@@ -78,9 +78,10 @@ void observerPatternExample()
 	IDisplay* displayWeatherStats = new DisplayWeatherStats(weatherData);
 
 	IDisplay* fakeHeatIndex = new DisplayHeatIndex(weatherData);	// "retrofitted"
+	IDisplay* displayWindSpeed = new DisplayWindSpeed(weatherData);  // also retrofitted, but also needs a new param
 
-	weatherData->setMeasurements(10, 0.4f, 2.0f);
-	weatherData->setMeasurements(13, 1, 2.0f);
-	weatherData->setMeasurements(12, 0.4f, 1.7f);
-	weatherData->setMeasurements(12, 0.9f, 2.1f);
+	weatherData->setMeasurements(10, 0.4f, 2.0f, 30);
+	weatherData->setMeasurements(13, 1, 2.0f, 30);
+	weatherData->setMeasurements(12, 0.4f, 1.7f, 30);
+	weatherData->setMeasurements(12, 0.9f, 2.1f, 30);
 }

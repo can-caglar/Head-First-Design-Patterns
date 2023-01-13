@@ -3,18 +3,21 @@
 
 IDisplay::IDisplay(WeatherData* weatherData)
 {
-    weatherData->addObserver(this);
+    _weatherDataBeingObserved = weatherData;
+    _weatherDataBeingObserved->addObserver(this);
 }
 
-void IDisplay::update(WeatherData* subjectGivingNotification)
+void IDisplay::update()
 {
-    display(subjectGivingNotification->getTemperature(), 
-            subjectGivingNotification->getHumidity(), 
-            subjectGivingNotification->getPressure());
+    display();
 }
 
-void DisplayCurrentConditions::display(float temp, float humi, float pres)
+void DisplayCurrentConditions::display()
 {
+    float temp = _weatherDataBeingObserved->getTemperature();
+    float humi = _weatherDataBeingObserved->getHumidity();
+    float pres = _weatherDataBeingObserved->getPressure();
+
     std::cout << "--- Current Conditions Display ---" << std::endl;
     std::cout << "--- TEMP: " << temp << std::endl;
     std::cout << "--- HUMI: " << humi << std::endl;
@@ -22,8 +25,12 @@ void DisplayCurrentConditions::display(float temp, float humi, float pres)
     std::cout << std::endl;
 }
 
-void DisplayWeatherStats::display(float temp, float humi, float pres)
+void DisplayWeatherStats::display()
 {
+    float temp = _weatherDataBeingObserved->getTemperature();
+    float humi = _weatherDataBeingObserved->getHumidity();
+    float pres = _weatherDataBeingObserved->getPressure();
+
     // Update stats
     if (temp < _minTemp)
     {
@@ -35,7 +42,7 @@ void DisplayWeatherStats::display(float temp, float humi, float pres)
     }
     _totalTemp += temp;
     _tempReadings++;
-    
+
     // Display
     std::cout << "--- Weather Stats ---" << std::endl;
     std::cout << "--- Avg Temp: " << (_totalTemp / _tempReadings) << std::endl;
@@ -44,18 +51,35 @@ void DisplayWeatherStats::display(float temp, float humi, float pres)
     std::cout << std::endl;
 }
 
-void DisplaySimpleForecast::display(float temp, float humi, float pres)
+void DisplaySimpleForecast::display()
 {
-    float tempTomorrow = (temp) + (humi > 5 ? 2 : -2);
+    float temp = _weatherDataBeingObserved->getTemperature();
+    float humi = _weatherDataBeingObserved->getHumidity();
+    float pres = _weatherDataBeingObserved->getPressure();
+
+    float tempTomorrow = (temp)+(humi > 5 ? 2 : -2);
 
     std::cout << "--- Simple Forecast  ---" << std::endl;
     std::cout << "--- Temp tomorrow: " << tempTomorrow << std::endl;
     std::cout << std::endl;
 }
 
-void DisplayHeatIndex::display(float temp, float humi, float pres)
+void DisplayHeatIndex::display()
 {
+    float temp = _weatherDataBeingObserved->getTemperature();
+    float humi = _weatherDataBeingObserved->getHumidity();
+    float pres = _weatherDataBeingObserved->getPressure();
+
     std::cout << "--- DisplayHeatIndex  ---" << std::endl;
-    std::cout << "--- Fake Heat Index: " << temp*humi*pres<< std::endl;
+    std::cout << "--- Fake Heat Index: " << temp * humi * pres << std::endl;
+    std::cout << std::endl;
+}
+
+void DisplayWindSpeed::display()
+{
+    float windspeed = _weatherDataBeingObserved->getWindSpeed();
+
+    std::cout << "~~~ Wind Speed  ~~~" << std::endl;
+    std::cout << "~~~ Value: " << windspeed << std::endl;
     std::cout << std::endl;
 }
