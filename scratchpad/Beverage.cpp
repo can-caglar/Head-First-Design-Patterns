@@ -1,8 +1,18 @@
 #include "Beverage.h"
 
+void Beverage::setSize(Size newSize)
+{
+	_size = newSize;
+}
+
+Beverage::Size Beverage::getSize()
+{
+	return _size;
+}
+
 std::string DarkRoast::description()
 {
-	return "A strong, bold coffee that is roasted for longer.";
+	return "A strong, bold, " + _sizeStrings[_size] + " coffee that is roasted for longer.";
 }
 
 double DarkRoast::cost()
@@ -12,7 +22,7 @@ double DarkRoast::cost()
 
 std::string Decaf::description()
 {
-	return "A coffee alternative with low caffeine.";
+	return "A (" + _sizeStrings[_size] + " sized) " + "coffee alternative with low caffeine.";
 }
 
 double Decaf::cost()
@@ -22,7 +32,7 @@ double Decaf::cost()
 
 std::string HouseBlend::description()
 {
-	return "A medium roast coffee blend.";
+	return "A (" + _sizeStrings[_size] + " sized) " + "medium roast coffee blend.";
 }
 
 double HouseBlend::cost()

@@ -1,5 +1,7 @@
 #include "Condements.h"
 
+#include <iostream>
+
 Condements::Condements(Beverage* beverageToCondement)
 {
 	_beverageBeingCondemented = beverageToCondement;
@@ -12,7 +14,14 @@ std::string SteamedMilk::description()
 
 double SteamedMilk::cost()
 {
-	return _beverageBeingCondemented->cost() + 0.10;
+	std::cout << "SteamedMilk bevvy size = " << _beverageBeingCondemented->getSize() << std::endl;
+
+	return _beverageBeingCondemented->cost() + _myCosts[_beverageBeingCondemented->getSize()];
+}
+
+Beverage::Size SteamedMilk::getSize()
+{
+	return _beverageBeingCondemented->getSize();
 }
 
 std::string Mocha::description()
@@ -22,5 +31,11 @@ std::string Mocha::description()
 
 double Mocha::cost()
 {
-	return _beverageBeingCondemented->cost() + 0.20;
+	std::cout << "mocha bevvy size = " << _beverageBeingCondemented->getSize() << std::endl;
+	return _beverageBeingCondemented->cost() + _myCosts[_beverageBeingCondemented->getSize()];
+}
+
+Beverage::Size Mocha::getSize()
+{
+	return _beverageBeingCondemented->getSize();
 }

@@ -94,14 +94,19 @@ static void observerPatternExample()
 
 static void decoratorPatternExample()
 {
-	Beverage* houseBlend = new HouseBlend();
-	Beverage* darkRoast = new DarkRoast();
+	// "I'd like to order a "venti" house blend with steamed milk and mocha please!"
 
+	// Prepare drink
+	Beverage* houseBlend = new HouseBlend();
+	houseBlend->setSize(Beverage::VENTI);
+
+	// Add condements
 	Beverage* coffeeWithSteamedMilk = new SteamedMilk(houseBlend);
 	Beverage* coffeeWithSteamedMilkAndMocha = new Mocha(coffeeWithSteamedMilk);
 
+	// View indivisual layers
 	std::cout << houseBlend->description() << " Cost: " << houseBlend->cost() << std::endl;
-	std::cout << darkRoast->description() << " Cost: " << darkRoast->cost() << std::endl;
 	std::cout << coffeeWithSteamedMilk->description() << " Cost: " << coffeeWithSteamedMilk->cost() << std::endl;
-	std::cout << coffeeWithSteamedMilkAndMocha->description() << " Cost: " << coffeeWithSteamedMilkAndMocha->cost() << std::endl;
+	std::cout << coffeeWithSteamedMilkAndMocha->description() 
+		<< " Cost: " << coffeeWithSteamedMilkAndMocha->cost() << std::endl;
 }
