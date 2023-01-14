@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Beverage.cpp" />
+    <ClCompile Include="Condements.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Beverage.h" />
+    <ClInclude Include="Condements.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DuckBehaviours.h" />
     <ClInclude Include="DuckCall.h" />

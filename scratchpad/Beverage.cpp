@@ -1,9 +1,8 @@
 #include "Beverage.h"
-#include <iostream>
 
-void DarkRoast::description()
+std::string DarkRoast::description()
 {
-	std::cout << "A strong, bold coffee that is roasted for longer." << std::endl;
+	return "A strong, bold coffee that is roasted for longer.";
 }
 
 double DarkRoast::cost()
@@ -11,9 +10,9 @@ double DarkRoast::cost()
 	return 0.99;
 }
 
-void Decaf::description()
+std::string Decaf::description()
 {
-	std::cout << "A coffee alternative with low caffeine." << std::endl;
+	return "A coffee alternative with low caffeine.";
 }
 
 double Decaf::cost()
@@ -21,9 +20,9 @@ double Decaf::cost()
 	return 1.05;
 }
 
-void HouseBlend::description()
+std::string HouseBlend::description()
 {
-	std::cout << "A medium roast coffee blend." << std::endl;
+	return "A medium roast coffee blend.";
 }
 
 double HouseBlend::cost()

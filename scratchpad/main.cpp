@@ -13,6 +13,7 @@
 
 // Decorator pattern includes
 #include "Beverage.h"
+#include "Condements.h"
 
 // Helper functions
 void printToConsole(const char* str);
@@ -96,8 +97,11 @@ static void decoratorPatternExample()
 	Beverage* houseBlend = new HouseBlend();
 	Beverage* darkRoast = new DarkRoast();
 
-	houseBlend->description();
-	darkRoast->description();
+	Beverage* coffeeWithSteamedMilk = new SteamedMilk(houseBlend);
+	Beverage* coffeeWithSteamedMilkAndMocha = new Mocha(coffeeWithSteamedMilk);
 
-	std::cout << "Cost of each: " << houseBlend->cost() << ", " << darkRoast->cost() << std::endl;
+	std::cout << houseBlend->description() << " Cost: " << houseBlend->cost() << std::endl;
+	std::cout << darkRoast->description() << " Cost: " << darkRoast->cost() << std::endl;
+	std::cout << coffeeWithSteamedMilk->description() << " Cost: " << coffeeWithSteamedMilk->cost() << std::endl;
+	std::cout << coffeeWithSteamedMilkAndMocha->description() << " Cost: " << coffeeWithSteamedMilkAndMocha->cost() << std::endl;
 }
