@@ -14,7 +14,7 @@ protected:
 class SteamedMilk : public Condements
 {
 public:
-	using Condements::Condements;
+	SteamedMilk(Beverage* beverageToCondement) : Condements(beverageToCondement) {};
 	std::string description() override;
 	virtual double cost() override;
 };
@@ -22,7 +22,7 @@ public:
 class Mocha : public Condements
 {
 public:
-	using Condements::Condements;
+	Mocha(Beverage* beverageToCondement) : Condements(beverageToCondement) {}
 	std::string description() override;
 	double cost() override;
 };
