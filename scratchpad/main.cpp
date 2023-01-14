@@ -11,12 +11,16 @@
 #include "WeatherData.h"
 #include "Display.h"
 
+// Decorator pattern includes
+#include "Beverage.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
 // Example runner functions
 static void strategyPatternExample();
 static void observerPatternExample();
+static void decoratorPatternExample();
 
 int main(void)
 {
@@ -24,6 +28,7 @@ int main(void)
 
 	strategyPatternExample();
 	observerPatternExample();
+	decoratorPatternExample();
 }
 
 // Helper functions
@@ -69,7 +74,7 @@ dependency between objects so that when one
 object changes state, all of its dependents are
 notified and updated automatically.
 */
-void observerPatternExample()
+static void observerPatternExample()
 {
 	WeatherData* weatherData = new WeatherData();
 
@@ -84,4 +89,15 @@ void observerPatternExample()
 	weatherData->setMeasurements(13, 1, 2.0f, 30);
 	weatherData->setMeasurements(12, 0.4f, 1.7f, 30);
 	weatherData->setMeasurements(12, 0.9f, 2.1f, 30);
+}
+
+static void decoratorPatternExample()
+{
+	Beverage* houseBlend = new HouseBlend();
+	Beverage* darkRoast = new DarkRoast();
+
+	houseBlend->description();
+	darkRoast->description();
+
+	std::cout << "Cost of each: " << houseBlend->cost() << ", " << darkRoast->cost() << std::endl;
 }
