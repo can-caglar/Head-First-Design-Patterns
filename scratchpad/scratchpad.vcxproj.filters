@@ -19,6 +19,9 @@
     <Filter Include="Source Files\ObserverPattern">
       <UniqueIdentifier>{ed01b438-04e4-4b38-b8bb-03debe88f2c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DecoratorPattern">
+      <UniqueIdentifier>{632b1cc0-bb88-454f-99d3-810fb6b12abd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -38,6 +41,12 @@
     </ClCompile>
     <ClCompile Include="Display.cpp">
       <Filter>Source Files\ObserverPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Beverage.cpp">
+      <Filter>Source Files\DecoratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Condements.cpp">
+      <Filter>Source Files\DecoratorPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="IObserver.h">
       <Filter>Source Files\ObserverPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Beverage.h">
+      <Filter>Source Files\DecoratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Condements.h">
+      <Filter>Source Files\DecoratorPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
