@@ -33,18 +33,18 @@ class HouseBlend : public Beverage
 {
 public:
 	std::string description() override;
-	virtual double cost() override;
+	double cost() override;
 };
 
 class DarkRoast : public Beverage
 {
 public:
 	std::string description() override;
-	virtual double cost() override;
+	double cost() override;
 };
 
 class Decaf : public Beverage
 {
 	std::string description() override;
-	virtual double cost() override;
+	double cost() override;
 };

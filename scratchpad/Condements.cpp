@@ -14,8 +14,6 @@ std::string SteamedMilk::description()
 
 double SteamedMilk::cost()
 {
-	std::cout << "SteamedMilk bevvy size = " << _beverageBeingCondemented->getSize() << std::endl;
-
 	return _beverageBeingCondemented->cost() + _myCosts[_beverageBeingCondemented->getSize()];
 }
 
