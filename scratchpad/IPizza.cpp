@@ -1,122 +1,32 @@
 #include "IPizza.h"
 #include <iostream>
 
-void PepperoniPizza::prepare()
+void IPizza::prepare()
 {
-	std::cout << "Preparing Pepperoni pizza." << std::endl;
+	std::cout << std::endl;
+	std::cout << "Preparing " << _name << std::endl;
+	std::cout << "Kneeding the " << _dough << " dough" << std::endl;
+	std::cout << "Applying " << _base << " base" << std::endl;
+	std::cout << "Sprinkling " << _cheese << " on top." << std::endl;
+	std::cout << "Adding toppings: ";
+	for (const std::string& topping : _toppings)
+	{
+		std::cout << topping << " ";
+	}
+	std::cout << std::endl;
 }
 
-void PepperoniPizza::bake()
+void IPizza::bake()
 {
-	std::cout << "Baking Pepperoni pizza." << std::endl;
+	std::cout << "Baking at 200C for 20 minutes" << std::endl;
 }
 
-void PepperoniPizza::slice()
+void IPizza::slice()
 {
-	std::cout << "Slicing Pepperoni pizza." << std::endl;
+	std::cout << "Cutting pizza into slices." << std::endl;
 }
 
-void PepperoniPizza::box()
+void IPizza::box()
 {
-	std::cout << "Boxing the Pepperoni pizza." << std::endl;
-}
-
-void FourCheesePizza::prepare()
-{
-	std::cout << "Preparing FourCheese pizza." << std::endl;
-}
-
-void FourCheesePizza::bake()
-{
-	std::cout << "Baking FourCheese pizza." << std::endl;
-}
-
-void FourCheesePizza::slice()
-{
-	std::cout << "Slicing FourCheese pizza." << std::endl;
-}
-
-void FourCheesePizza::box()
-{
-	std::cout << "Boxing the FourCheese pizza." << std::endl;
-}
-
-void NyStyleFourCheesePizza::prepare()
-{
-	std::cout << "NyStyleFourCheesePizza::prepare()" << std::endl;  // to save time :)
-}
-
-void NyStyleFourCheesePizza::bake()
-{
-	std::cout << "NyStyleFourCheesePizza::bake()" << std::endl;  // to save time :)
-}
-
-void NyStyleFourCheesePizza::slice()
-{
-	std::cout << "NyStyleFourCheesePizza::slice()" << std::endl;  // to save time :)
-}
-
-void NyStyleFourCheesePizza::box()
-{
-	std::cout << "NyStyleFourCheesePizza::box()" << std::endl;  // to save time :)
-}
-
-void NyStylePepperoni::prepare()
-{
-	std::cout << "NyStylePepperoni::prepare()" << std::endl;  // to save time :)
-}
-
-void NyStylePepperoni::bake()
-{
-	std::cout << "NyStylePepperoni::bake()" << std::endl;  // to save time :)
-}
-
-void NyStylePepperoni::slice()
-{
-	std::cout << "NyStylePepperoni::slice()" << std::endl;  // to save time :)
-}
-
-void NyStylePepperoni::box()
-{
-	std::cout << "NyStylePepperoni::box()" << std::endl;  // to save time :)
-}
-
-void ChicagoStyleFourCheesePizza::prepare()
-{
-	std::cout << "ChicagoStyleFourCheesePizza::prepare()" << std::endl;  // to save time :)
-}
-
-void ChicagoStyleFourCheesePizza::bake()
-{
-	std::cout << "ChicagoStyleFourCheesePizza::bake()" << std::endl;  // to save time :)
-}
-
-void ChicagoStyleFourCheesePizza::slice()
-{
-	std::cout << "ChicagoStyleFourCheesePizza::slice()" << std::endl;  // to save time :)
-}
-
-void ChicagoStyleFourCheesePizza::box()
-{
-	std::cout << "ChicagoStyleFourCheesePizza::box()" << std::endl;  // to save time :)
-}
-
-void ChicagoStylePepperoni::prepare()
-{
-	std::cout << "ChicagoStylePepperoni::prepare()" << std::endl;  // to save time :)
-}
-
-void ChicagoStylePepperoni::bake()
-{
-	std::cout << "ChicagoStylePepperoni::bake()" << std::endl;  // to save time :)
-}
-
-void ChicagoStylePepperoni::slice()
-{
-	std::cout << "ChicagoStylePepperoni::slice()" << std::endl;  // to save time :)
-}
-
-void ChicagoStylePepperoni::box()
-{
-	std::cout << "ChicagoStylePepperoni::box()" << std::endl;  // to save time :)
+	std::cout << "Boxing the pizza." << std::endl;
 }

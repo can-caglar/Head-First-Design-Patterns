@@ -134,6 +134,9 @@ static void factoryPatternExample()
 	// Franchises can make different style
 	// of pizza, but their ordering process
 	// has to be uniform.
+
+	// Ensure all franchises are using the
+	// same ingredients!
 	std::cout << "\n\n~~~Factory pattern example~~~\n" << std::endl;
 
 	IPizzaStore* chicagoStyleStore = new ChicagoStylePizzaStore();
