@@ -2,29 +2,56 @@
 #include "IPizza.h"
 #include <iostream>
 
-void PizzaStore::order(std::string pizzaName)
+void IPizzaStore::order(std::string pizzaName)
 {
-	IPizza* pizza;
+	// encapsulated the creation of pizza
+	// in a method. Leaving the "decision"
+	// of which pizza to make, to the
+	// derived subclasses, or technically,
+	// to the client, who decides which 
+	// concrete subclass to instantiate.
+	IPizza* pizza = createPizza(pizzaName);
 
-	// Initial, bad implementation. 
-	// The pizza creation can change, so 
-	// we have to encapsulate.
-	if (pizzaName == "four cheese")
-	{
-		pizza = new FourCheesePizza();
-	}
-	else if (pizzaName == "pepperoni")
-	{
-		pizza = new PepperoniPizza();
-	}
-	else
-	{
-		std::cout << "Unknown pizza requested." << std::endl;
-		return;
-	}
-
+	// The preparation technique 
+	// is uniform for all "franchises".
 	pizza->prepare();
 	pizza->bake();
 	pizza->slice();
 	pizza->box();
+}
+
+IPizza* NYStylePizzaStore::createPizza(std::string pizzaName)
+{
+	IPizza* pizza = nullptr;
+	if (pizzaName == "four cheese")
+	{
+		pizza = new NyStyleFourCheesePizza();
+	}
+	else if (pizzaName == "pepperoni")
+	{
+		pizza = new NyStylePepperoni();
+	}
+	else
+	{
+		std::cout << "Unknown pizza requested." << std::endl;
+	}
+	return pizza;
+}
+
+IPizza* ChicagoStylePizzaStore::createPizza(std::string pizzaName)
+{
+	IPizza* pizza = nullptr;
+	if (pizzaName == "four cheese")
+	{
+		pizza = new ChicagoStyleFourCheesePizza();
+	}
+	else if (pizzaName == "pepperoni")
+	{
+		pizza = new ChicagoStylePepperoni();
+	}
+	else
+	{
+		std::cout << "Unknown pizza requested." << std::endl;
+	}
+	return pizza;
 }

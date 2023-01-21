@@ -28,3 +28,44 @@ public:
 	void slice() override;
 	void box() override;
 };
+
+class NyStyleFourCheesePizza : public IPizza
+{
+public:
+	// Inherited via IPizza
+	virtual void prepare() override;
+	virtual void bake() override;
+	virtual void slice() override;
+	virtual void box() override;
+};
+
+class NyStylePepperoni : public IPizza
+{
+public:
+	// Inherited via IPizza
+	virtual void prepare() override;
+	virtual void bake() override;
+	virtual void slice() override;
+	virtual void box() override;
+};
+
+class ChicagoStyleFourCheesePizza : public IPizza
+{
+public:
+	// Inherited via IPizza
+	virtual void prepare() override;
+	virtual void bake() override;
+	virtual void slice() override;
+	virtual void box() override;
+};
+
+class ChicagoStylePepperoni : public IPizza
+{
+public:
+	// Inherited via IPizza
+	virtual void prepare() override;
+	virtual void bake() override;
+	virtual void slice() override;
+	virtual void box() override;
+};
+

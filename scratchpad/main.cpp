@@ -122,6 +122,12 @@ static void decoratorPatternExample()
 		<< " Cost: " << coffeeWithSteamedMilkAndMocha->cost() << std::endl;
 }
 
+/*
+The Factory Method Pattern defines an interface
+for creating an object, but lets subclasses decide which
+class to instantiate. Factory Method lets a class defer
+instantiation to subclasses.
+*/
 static void factoryPatternExample()
 {
 	// Create program for a pizza franchise
@@ -129,6 +135,17 @@ static void factoryPatternExample()
 	// of pizza, but their ordering process
 	// has to be uniform.
 	std::cout << "\n\n~~~Factory pattern example~~~\n" << std::endl;
-	PizzaStore myPizzaStore;
-	myPizzaStore.order("four cheese");
+
+	IPizzaStore* chicagoStyleStore = new ChicagoStylePizzaStore();
+	IPizzaStore* nyStyleStore = new NYStylePizzaStore();
+
+	std::cout << "Ordering all pizzas from the Chicago style store" << std::endl;
+	chicagoStyleStore->order("four cheese");
+	chicagoStyleStore->order("pepperoni");
+
+	std::cout << std::endl;
+
+	std::cout << "Ordering all pizzas from the NY style store" << std::endl;
+	nyStyleStore->order("four cheese");
+	nyStyleStore->order("pepperoni");
 }
