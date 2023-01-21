@@ -15,6 +15,9 @@
 #include "Beverage.h"
 #include "Condements.h"
 
+// Factory pattern includes
+#include "PizzaStore.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -22,6 +25,7 @@ void printToConsole(const char* str);
 static void strategyPatternExample();
 static void observerPatternExample();
 static void decoratorPatternExample();
+static void factoryPatternExample();
 
 int main(void)
 {
@@ -30,6 +34,7 @@ int main(void)
 	strategyPatternExample();
 	observerPatternExample();
 	decoratorPatternExample();
+	factoryPatternExample();
 }
 
 // Helper functions
@@ -92,6 +97,12 @@ static void observerPatternExample()
 	weatherData->setMeasurements(12, 0.9f, 2.1f, 30);
 }
 
+/*
+The Decorator Pattern attaches additional 
+responsibilities to an object dynamically.
+Decorators provide a flexible alternative 
+to subclassing for extending functionality.
+*/
 static void decoratorPatternExample()
 {
 	// "I'd like to order a "venti" house blend with steamed milk and mocha please!"
@@ -109,4 +120,15 @@ static void decoratorPatternExample()
 	std::cout << coffeeWithSteamedMilk->description() << " Cost: " << coffeeWithSteamedMilk->cost() << std::endl;
 	std::cout << coffeeWithSteamedMilkAndMocha->description() 
 		<< " Cost: " << coffeeWithSteamedMilkAndMocha->cost() << std::endl;
+}
+
+static void factoryPatternExample()
+{
+	// Create program for a pizza franchise
+	// Franchises can make different style
+	// of pizza, but their ordering process
+	// has to be uniform.
+	std::cout << "\n\n~~~Factory pattern example~~~\n" << std::endl;
+	PizzaStore myPizzaStore;
+	myPizzaStore.order("four cheese");
 }
