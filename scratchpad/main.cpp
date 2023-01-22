@@ -18,6 +18,9 @@
 // Factory pattern includes
 #include "PizzaStore.h"
 
+// Singleton pattern includes
+#include "ChocolateBoiler.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -26,6 +29,7 @@ static void strategyPatternExample();
 static void observerPatternExample();
 static void decoratorPatternExample();
 static void factoryPatternExample();
+static void singletonPatternExample();
 
 int main(void)
 {
@@ -35,6 +39,7 @@ int main(void)
 	observerPatternExample();
 	decoratorPatternExample();
 	factoryPatternExample();
+	singletonPatternExample();
 }
 
 // Helper functions
@@ -152,4 +157,23 @@ static void factoryPatternExample()
 	nyStyleStore->order("four cheese");
 	nyStyleStore->order("pepperoni");
 
+}
+
+/*
+Ensure a class has only one instance and provide
+a global point of access to it.
+*/
+static void singletonPatternExample()
+{
+	std::cout << std::endl << "Singleton Pattern Example" << std::endl;
+	ChocolateBoiler* chocoBoiler = ChocolateBoiler::getInstance();
+	ChocolateBoiler* chocoBoilerAnotherVariable = ChocolateBoiler::getInstance();
+
+	chocoBoiler->fill();
+	chocoBoilerAnotherVariable->fill(); // shouldn't allow us to fill
+
+	chocoBoiler->boil();
+	chocoBoiler->drain();
+
+	chocoBoilerAnotherVariable->fill();	// shall allow us to boil
 }
