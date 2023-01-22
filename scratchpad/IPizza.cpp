@@ -8,11 +8,6 @@ void IPizza::prepare()
 	std::cout << "Kneeding the " << _dough << " dough" << std::endl;
 	std::cout << "Applying " << _base << " base" << std::endl;
 	std::cout << "Sprinkling " << _cheese << " on top." << std::endl;
-	std::cout << "Adding toppings: ";
-	for (const std::string& topping : _toppings)
-	{
-		std::cout << topping << " ";
-	}
 	std::cout << std::endl;
 }
 

@@ -57,6 +57,9 @@
     <ClCompile Include="PizzaStore.cpp">
       <Filter>Source Files\FactoryPattern</Filter>
     </ClCompile>
+    <ClCompile Include="Ingredients.cpp">
+      <Filter>Source Files\FactoryPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DuckBehaviours.h">
@@ -90,6 +93,9 @@
       <Filter>Source Files\FactoryPattern</Filter>
     </ClInclude>
     <ClInclude Include="PizzaStore.h">
+      <Filter>Source Files\FactoryPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Ingredients.h">
       <Filter>Source Files\FactoryPattern</Filter>
     </ClInclude>
   </ItemGroup>

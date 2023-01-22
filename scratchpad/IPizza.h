@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include "Ingredients.h"
 
 class IPizza
 {
@@ -11,12 +12,10 @@ public:
 	void slice();
 	void box();
 protected:
-	IPizza() {};	// this class is not meant to be instantiated
 	std::string _name;
 	std::string _dough;
 	std::string _base;
 	std::string _cheese;
-	std::vector<std::string> _toppings;
 };
 
 class NyStyleFourCheesePizza : public IPizza
@@ -28,9 +27,6 @@ public:
 		_dough = "normal";
 		_base = "none";
 		_cheese = "parmesan";
-		_toppings.push_back("gorgonzola");
-		_toppings.push_back("mozarella");
-		_toppings.push_back("feta");
 	}
 };
 
@@ -43,7 +39,6 @@ public:
 		_dough = "sour";
 		_base = "tomato";
 		_cheese = "mozarella";
-		_toppings.push_back("pepperoni");
 	}
 };
 
@@ -56,8 +51,6 @@ public:
 		_dough = "normal";
 		_base = "chicago tomato";
 		_cheese = "chicago mozarella";
-		_toppings.push_back("chicago mozarella");
-		_toppings.push_back("feta");
 	}
 };
 
@@ -70,6 +63,17 @@ public:
 		_dough = "chicago normal";
 		_base = "chicago tomato";
 		_cheese = "chicago mozarella";
-		_toppings.push_back("pepperoni");
+	}
+};
+
+class CheapNYPizza : public IPizza
+{
+public:
+	CheapNYPizza()
+	{
+		_name = "Cheap NY Pizza";
+		_dough = "cheap dough";
+		_base = "cheap tomato";
+		_cheese = "cheap cheese";
 	}
 };
