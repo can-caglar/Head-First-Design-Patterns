@@ -2,78 +2,47 @@
 
 #include <string>
 #include <vector>
-#include "Ingredients.h"
+#include "IngredientsFactory.h"
 
 class IPizza
 {
 public:
-	void prepare();
+	IPizza(IIngredientsFactory* factory) 
+		: _ingredientFactory(factory)
+		, _name("")
+		, _dough(nullptr)
+		, _base(nullptr) 
+		, _cheese(nullptr) {};
+	virtual ~IPizza() = 0;
+	virtual void prepare() = 0;
 	void bake();
 	void slice();
 	void box();
+	std::string getName();
 protected:
+	IIngredientsFactory* _ingredientFactory;
 	std::string _name;
-	std::string _dough;
-	std::string _base;
-	std::string _cheese;
+	IDough* _dough;
+	IBase* _base;
+	ICheese* _cheese;
 };
 
-class NyStyleFourCheesePizza : public IPizza
+class NyCheesePizza : public IPizza
 {
 public:
-	NyStyleFourCheesePizza()
+	NyCheesePizza(IIngredientsFactory* factory) : IPizza(factory)
 	{
-		_name = "NY Style 4-Cheese Pizza";
-		_dough = "normal";
-		_base = "none";
-		_cheese = "parmesan";
+		_name = "NY style cheese Pizza";
 	}
+	void prepare() override;
 };
 
-class NyStylePepperoni : public IPizza
+class ChicagoCheesePizza : public IPizza
 {
 public:
-	NyStylePepperoni()
+	ChicagoCheesePizza(IIngredientsFactory* factory) : IPizza(factory)
 	{
-		_name = "NY Style Pepperoni Pizza";
-		_dough = "sour";
-		_base = "tomato";
-		_cheese = "mozarella";
+		_name = "Chicago style cheese Pizza";
 	}
-};
-
-class ChicagoStyleFourCheesePizza : public IPizza
-{
-public:
-	ChicagoStyleFourCheesePizza()
-	{
-		_name = "Chicago Style 4-Cheese Pizza";
-		_dough = "normal";
-		_base = "chicago tomato";
-		_cheese = "chicago mozarella";
-	}
-};
-
-class ChicagoStylePepperoni : public IPizza
-{
-public:
-	ChicagoStylePepperoni()
-	{
-		_name = "Chicago Style Pepperoni Pizza";
-		_dough = "chicago normal";
-		_base = "chicago tomato";
-		_cheese = "chicago mozarella";
-	}
-};
-
-class CheapNYPizza : public IPizza
-{
-public:
-	CheapNYPizza()
-	{
-		_name = "Cheap NY Pizza";
-		_dough = "cheap dough";
-		_base = "cheap tomato";
-		_cheese = "cheap cheese";
-	}
+	void prepare() override;
 };

@@ -1,5 +1,6 @@
 #include "PizzaStore.h"
 #include "IPizza.h"
+#include "IngredientsFactory.h"
 #include <iostream>
 
 void IPizzaStore::order(std::string pizzaName)
@@ -14,23 +15,28 @@ void IPizzaStore::order(std::string pizzaName)
 
 	// The preparation technique 
 	// is uniform for all "franchises".
-	pizza->prepare();
-	pizza->bake();
-	pizza->slice();
-	pizza->box();
+	if (pizza)
+	{
+		pizza->prepare();
+		pizza->bake();
+		pizza->slice();
+		pizza->box();
+	}
 }
 
 IPizza* NYStylePizzaStore::createPizza(std::string pizzaName)
 {
 	IPizza* pizza = nullptr;
+	IIngredientsFactory* nyIngredientFactory = new NYPizzaIngredientFactory();
+
 	if (pizzaName == "four cheese")
 	{
-		pizza = new NyStyleFourCheesePizza();
+		pizza = new NyCheesePizza(nyIngredientFactory);
 	}
-	else if (pizzaName == "pepperoni")
-	{
-		pizza = new NyStylePepperoni();
-	}
+	//else if (pizzaName == "pepperoni")
+	//{
+	//	 pizza = new NyStylePepperoni();	// if we had implemented it
+	//}
 	else
 	{
 		std::cout << "Unknown pizza requested." << std::endl;
@@ -41,14 +47,15 @@ IPizza* NYStylePizzaStore::createPizza(std::string pizzaName)
 IPizza* ChicagoStylePizzaStore::createPizza(std::string pizzaName)
 {
 	IPizza* pizza = nullptr;
+	IIngredientsFactory* chicagoIngredientFactory = new ChicagoPizzaIngredientFactory();
 	if (pizzaName == "four cheese")
 	{
-		pizza = new ChicagoStyleFourCheesePizza();
+		pizza = new ChicagoCheesePizza(chicagoIngredientFactory);
 	}
-	else if (pizzaName == "pepperoni")
-	{
-		pizza = new ChicagoStylePepperoni();
-	}
+	//else if (pizzaName == "pepperoni")
+	//{
+	//	// pizza = new ChicagoStylePepperoni();  // if we had implemented it
+	//}
 	else
 	{
 		std::cout << "Unknown pizza requested." << std::endl;

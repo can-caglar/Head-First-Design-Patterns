@@ -4,7 +4,11 @@
 // Create the "quality" ingredients
 // that the "franchise" wants to use
 
-class IIngredient
+// Lot's of common code here but this is just 
+// for the example. Imagine each IDough, IBase
+// are totally different classes.
+
+class IDough
 {
 public:
 	std::string getName()
@@ -15,7 +19,29 @@ protected:
 	std::string _name;
 };
 
-class DoughThinCrust : public IIngredient
+class IBase
+{
+public:
+	std::string getName()
+	{
+		return _name;
+	}
+protected:
+	std::string _name;
+};
+
+class ICheese
+{
+public:
+	std::string getName()
+	{
+		return _name;
+	}
+protected:
+	std::string _name;
+};
+
+class DoughThinCrust : public IDough
 {
 public:
 	DoughThinCrust()
@@ -24,7 +50,7 @@ public:
 	}
 };
 
-class DoughThickCrust : public IIngredient
+class DoughThickCrust : public IDough
 {
 public:
 	DoughThickCrust()
@@ -33,7 +59,7 @@ public:
 	}
 };
 
-class BaseQualityTomato : public IIngredient
+class BaseQualityTomato : public IBase
 {
 public:
 	BaseQualityTomato()
@@ -42,7 +68,7 @@ public:
 	}
 };
 
-class BasePlumTomato : public IIngredient
+class BasePlumTomato : public IBase
 {
 public:
 	BasePlumTomato()
@@ -51,7 +77,7 @@ public:
 	}
 };
 
-class CheeseParmesan : public IIngredient
+class CheeseParmesan : public ICheese
 {
 public:
 	CheeseParmesan()
@@ -60,7 +86,7 @@ public:
 	}
 };
 
-class CheeseMozarella : public IIngredient
+class CheeseMozarella : public ICheese
 {
 public:
 	CheeseMozarella()

@@ -133,6 +133,7 @@
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
     <ClCompile Include="Ingredients.cpp" />
+    <ClCompile Include="IngredientsFactory.cpp" />
     <ClCompile Include="IPizza.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PizzaStore.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="DuckBehaviours.h" />
     <ClInclude Include="DuckCall.h" />
     <ClInclude Include="Ingredients.h" />
+    <ClInclude Include="IngredientsFactory.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IPizza.h" />
     <ClInclude Include="ISubject.h" />

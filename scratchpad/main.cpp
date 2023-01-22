@@ -151,4 +151,5 @@ static void factoryPatternExample()
 	std::cout << "Ordering all pizzas from the NY style store" << std::endl;
 	nyStyleStore->order("four cheese");
 	nyStyleStore->order("pepperoni");
+
 }
