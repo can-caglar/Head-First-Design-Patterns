@@ -21,6 +21,11 @@
 // Singleton pattern includes
 #include "ChocolateBoiler.h"
 
+// Command pattern includes
+#include "Command.h"
+#include "Receiver.h"
+#include "Invoker.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -30,6 +35,7 @@ static void observerPatternExample();
 static void decoratorPatternExample();
 static void factoryPatternExample();
 static void singletonPatternExample();
+static void commandPattern();
 
 int main(void)
 {
@@ -40,6 +46,7 @@ int main(void)
 	decoratorPatternExample();
 	factoryPatternExample();
 	singletonPatternExample();
+	commandPattern();
 }
 
 // Helper functions
@@ -176,4 +183,58 @@ static void singletonPatternExample()
 	chocoBoiler->drain();
 
 	chocoBoilerAnotherVariable->fill();	// shall allow us to boil
+}
+
+/*
+The Command Pattern encapsulates a request as an
+object, thereby letting you parameterize other objects
+with different requests, queue or log requests, and
+support undoable operations.
+*/
+static void commandPattern()
+{
+	std::cout << std::endl << "Starting Command Pattern Example" << std::endl;
+
+	GarageDoor* garageDoor = new GarageDoor();
+	CeilingFan* ceilingFan = new CeilingFan();
+
+	CommandGarageLightOn* garageLightOn = new CommandGarageLightOn(garageDoor);
+	CommandGarageLightOff* garageLightOff = new CommandGarageLightOff(garageDoor);
+
+	CommandCeilingFanHigh* fanHigh = new CommandCeilingFanHigh(ceilingFan);
+	CommandCeilingFanMedium* fanMedium = new CommandCeilingFanMedium(ceilingFan);
+	CommandCeilingFanLow* fanLow = new CommandCeilingFanLow(ceilingFan);
+	CommandCeilingFanOff* fanOff = new CommandCeilingFanOff(ceilingFan);
+
+	RemoteControl remoteControl;
+	remoteControl.setCommand(garageLightOn, garageLightOff, 0);
+	remoteControl.setCommand(fanHigh, fanOff, 1);
+	remoteControl.setCommand(fanMedium, fanOff, 2);
+	remoteControl.setCommand(fanLow, fanOff, 3);
+	
+	remoteControl.buttonPressOn(1);
+	remoteControl.buttonPressOn(3);
+	remoteControl.buttonPressUndo();
+	remoteControl.buttonPressOff(0);
+
+	std::cout << "Executing \"enter garage routine\"" << std::endl;
+	std::vector<Command*> enterGarageCommands;
+	enterGarageCommands.push_back(fanHigh);
+	enterGarageCommands.push_back(garageLightOn);
+
+	std::vector<Command*> leaveGarage;
+	leaveGarage.push_back(fanOff);
+	leaveGarage.push_back(garageLightOff);
+
+	MacroCommand* cmdEnterGarage = new MacroCommand(enterGarageCommands);
+	MacroCommand* cmdLeaveGarage = new MacroCommand(leaveGarage);
+
+	remoteControl.setCommand(cmdEnterGarage, cmdLeaveGarage, 4);
+
+	remoteControl.buttonPressOn(4);
+	remoteControl.buttonPressUndo();
+	remoteControl.buttonPressOff(4);
+	remoteControl.buttonPressOff(4);
+	remoteControl.buttonPressUndo();
+
 }

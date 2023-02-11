@@ -129,12 +129,15 @@
   <ItemGroup>
     <ClCompile Include="Beverage.cpp" />
     <ClCompile Include="ChocolateBoiler.cpp" />
+    <ClCompile Include="Receiver.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="Condements.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
     <ClCompile Include="Ingredients.cpp" />
     <ClCompile Include="IngredientsFactory.cpp" />
+    <ClCompile Include="Invoker.cpp" />
     <ClCompile Include="IPizza.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PizzaStore.cpp" />
@@ -144,12 +147,15 @@
   <ItemGroup>
     <ClInclude Include="Beverage.h" />
     <ClInclude Include="ChocolateBoiler.h" />
+    <ClInclude Include="Receiver.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Condements.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DuckBehaviours.h" />
     <ClInclude Include="DuckCall.h" />
     <ClInclude Include="Ingredients.h" />
     <ClInclude Include="IngredientsFactory.h" />
+    <ClInclude Include="Invoker.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IPizza.h" />
     <ClInclude Include="ISubject.h" />

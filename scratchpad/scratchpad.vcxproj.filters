@@ -25,6 +25,12 @@
     <Filter Include="Source Files\FactoryPattern">
       <UniqueIdentifier>{d56d6e7f-8f55-40a6-8f78-90ead09666cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CommandPattern">
+      <UniqueIdentifier>{0ea1360c-f32c-49f4-835b-9cc67d005528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SingletonPattern">
+      <UniqueIdentifier>{4811b652-e63b-4fb0-b445-de123105a292}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -62,6 +68,18 @@
     </ClCompile>
     <ClCompile Include="IngredientsFactory.cpp">
       <Filter>Source Files\FactoryPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="ChocolateBoiler.cpp">
+      <Filter>Source Files\SingletonPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Invoker.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Receiver.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="IngredientsFactory.h">
       <Filter>Source Files\FactoryPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Invoker.h">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Receiver.h">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ChocolateBoiler.h">
+      <Filter>Source Files\SingletonPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
