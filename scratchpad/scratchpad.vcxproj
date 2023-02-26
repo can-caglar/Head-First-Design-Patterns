@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Beverage.cpp" />
+    <ClCompile Include="Brew.cpp" />
     <ClCompile Include="ChocolateBoiler.cpp" />
+    <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Condements.cpp" />
@@ -142,11 +144,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PizzaStore.cpp" />
     <ClCompile Include="SimUDuck.cpp" />
+    <ClCompile Include="Tea.cpp" />
     <ClCompile Include="WeatherData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Beverage.h" />
+    <ClInclude Include="Brew.h" />
     <ClInclude Include="ChocolateBoiler.h" />
+    <ClInclude Include="Coffee.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Condements.h" />
@@ -161,6 +166,7 @@
     <ClInclude Include="ISubject.h" />
     <ClInclude Include="PizzaStore.h" />
     <ClInclude Include="SimUDuck.h" />
+    <ClInclude Include="Tea.h" />
     <ClInclude Include="WeatherData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

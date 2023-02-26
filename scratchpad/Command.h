@@ -73,7 +73,7 @@ public:
 	void undo() override;
 private:
 	CeilingFan* m_fan;
-	CeilingFan::Speed m_prevSpeed;
+	CeilingFan::Speed m_prevSpeed = CeilingFan::SPEED_OFF;
 };
 
 class CommandCeilingFanLow : public Command
@@ -85,7 +85,7 @@ public:
 	void undo() override;
 private:
 	CeilingFan* m_fan;
-	CeilingFan::Speed m_prevSpeed;
+	CeilingFan::Speed m_prevSpeed = CeilingFan::SPEED_OFF;
 };
 
 class CommandCeilingFanHigh : public Command
@@ -97,7 +97,7 @@ public:
 	void undo() override;
 private:
 	CeilingFan* m_fan;
-	CeilingFan::Speed m_prevSpeed;
+	CeilingFan::Speed m_prevSpeed = CeilingFan::SPEED_OFF;
 };
 
 class CommandCeilingFanOff : public Command
@@ -109,5 +109,5 @@ public:
 	void undo() override;
 private:
 	CeilingFan* m_fan;
-	CeilingFan::Speed m_prevSpeed;
+	CeilingFan::Speed m_prevSpeed = CeilingFan::SPEED_OFF;
 };

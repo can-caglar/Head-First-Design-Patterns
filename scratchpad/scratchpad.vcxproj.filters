@@ -31,6 +31,9 @@
     <Filter Include="Source Files\SingletonPattern">
       <UniqueIdentifier>{4811b652-e63b-4fb0-b445-de123105a292}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\TemplateMethodPattern">
+      <UniqueIdentifier>{27a08c37-f13d-4fa3-ac11-e3daec8efbde}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -80,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="Receiver.cpp">
       <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Brew.cpp">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Tea.cpp">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Coffee.cpp">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +145,15 @@
     </ClInclude>
     <ClInclude Include="ChocolateBoiler.h">
       <Filter>Source Files\SingletonPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Brew.h">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Tea.h">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Coffee.h">
+      <Filter>Source Files\TemplateMethodPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

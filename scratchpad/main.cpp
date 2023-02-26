@@ -26,6 +26,10 @@
 #include "Receiver.h"
 #include "Invoker.h"
 
+// Template Method pattern
+#include "Tea.h"
+#include "Coffee.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -36,6 +40,7 @@ static void decoratorPatternExample();
 static void factoryPatternExample();
 static void singletonPatternExample();
 static void commandPattern();
+static void templateMethodPattern();
 
 int main(void)
 {
@@ -47,6 +52,7 @@ int main(void)
 	factoryPatternExample();
 	singletonPatternExample();
 	commandPattern();
+	templateMethodPattern();
 }
 
 // Helper functions
@@ -195,17 +201,19 @@ static void commandPattern()
 {
 	std::cout << std::endl << "Starting Command Pattern Example" << std::endl;
 
-	GarageDoor* garageDoor = new GarageDoor();
+	// the receivers
+	GarageDoor* garageDoor = new GarageDoor();	
 	CeilingFan* ceilingFan = new CeilingFan();
 
+	// the commands, encapsulating the receiver calls
 	CommandGarageLightOn* garageLightOn = new CommandGarageLightOn(garageDoor);
 	CommandGarageLightOff* garageLightOff = new CommandGarageLightOff(garageDoor);
-
 	CommandCeilingFanHigh* fanHigh = new CommandCeilingFanHigh(ceilingFan);
 	CommandCeilingFanMedium* fanMedium = new CommandCeilingFanMedium(ceilingFan);
 	CommandCeilingFanLow* fanLow = new CommandCeilingFanLow(ceilingFan);
 	CommandCeilingFanOff* fanOff = new CommandCeilingFanOff(ceilingFan);
 
+	// the invoker
 	RemoteControl remoteControl;
 	remoteControl.setCommand(garageLightOn, garageLightOff, 0);
 	remoteControl.setCommand(fanHigh, fanOff, 1);
@@ -237,4 +245,23 @@ static void commandPattern()
 	remoteControl.buttonPressOff(4);
 	remoteControl.buttonPressUndo();
 
+}
+
+
+/*
+Template Method - Define the
+skeleton of an algorithm in an operation,
+deferring some steps to subclasses.
+Template Method lets subclasses redefine
+certain steps of an algorithm without
+changing the algorithm’s structure.
+*/
+static void templateMethodPattern()
+{
+	std::cout << "Starting Template Method Pattern example" << std::endl;
+	Tea* tea = new Tea();
+	Coffee* coffee = new Coffee();
+
+	tea->prepare();
+	coffee->prepare();
 }
