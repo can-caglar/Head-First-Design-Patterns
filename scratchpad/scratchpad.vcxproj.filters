@@ -34,6 +34,9 @@
     <Filter Include="Source Files\TemplateMethodPattern">
       <UniqueIdentifier>{27a08c37-f13d-4fa3-ac11-e3daec8efbde}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\IteratorPattern">
+      <UniqueIdentifier>{540025b4-082f-4148-b271-35ee54ba4b29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -66,9 +69,6 @@
     <ClCompile Include="PizzaStore.cpp">
       <Filter>Source Files\FactoryPattern</Filter>
     </ClCompile>
-    <ClCompile Include="Ingredients.cpp">
-      <Filter>Source Files\FactoryPattern</Filter>
-    </ClCompile>
     <ClCompile Include="IngredientsFactory.cpp">
       <Filter>Source Files\FactoryPattern</Filter>
     </ClCompile>
@@ -92,6 +92,24 @@
     </ClCompile>
     <ClCompile Include="Coffee.cpp">
       <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="IIterator.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="PancakeHouseMenu.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="DinerMenu.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Waitress.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="IMenu.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuItem.cpp">
+      <Filter>Source Files\IteratorPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +172,24 @@
     </ClInclude>
     <ClInclude Include="Coffee.h">
       <Filter>Source Files\TemplateMethodPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IIterator.h">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="PancakeHouseMenu.h">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="DinerMenu.h">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Waitress.h">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="IMenu.h">
+      <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Source Files\IteratorPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

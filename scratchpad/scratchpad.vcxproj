@@ -131,13 +131,17 @@
     <ClCompile Include="Brew.cpp" />
     <ClCompile Include="ChocolateBoiler.cpp" />
     <ClCompile Include="Coffee.cpp" />
+    <ClCompile Include="DinerMenu.cpp" />
+    <ClCompile Include="IIterator.cpp" />
+    <ClCompile Include="IMenu.cpp" />
+    <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="PancakeHouseMenu.cpp" />
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Condements.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="DuckBehaviours.cpp" />
     <ClCompile Include="DuckCall.cpp" />
-    <ClCompile Include="Ingredients.cpp" />
     <ClCompile Include="IngredientsFactory.cpp" />
     <ClCompile Include="Invoker.cpp" />
     <ClCompile Include="IPizza.cpp" />
@@ -145,6 +149,7 @@
     <ClCompile Include="PizzaStore.cpp" />
     <ClCompile Include="SimUDuck.cpp" />
     <ClCompile Include="Tea.cpp" />
+    <ClCompile Include="Waitress.cpp" />
     <ClCompile Include="WeatherData.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +157,11 @@
     <ClInclude Include="Brew.h" />
     <ClInclude Include="ChocolateBoiler.h" />
     <ClInclude Include="Coffee.h" />
+    <ClInclude Include="DinerMenu.h" />
+    <ClInclude Include="IIterator.h" />
+    <ClInclude Include="IMenu.h" />
+    <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="PancakeHouseMenu.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Condements.h" />
@@ -167,6 +177,7 @@
     <ClInclude Include="PizzaStore.h" />
     <ClInclude Include="SimUDuck.h" />
     <ClInclude Include="Tea.h" />
+    <ClInclude Include="Waitress.h" />
     <ClInclude Include="WeatherData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

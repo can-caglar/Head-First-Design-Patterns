@@ -30,6 +30,11 @@
 #include "Tea.h"
 #include "Coffee.h"
 
+// Iterator pattern
+#include "PancakeHouseMenu.h"
+#include "DinerMenu.h"
+#include "Waitress.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -41,6 +46,7 @@ static void factoryPatternExample();
 static void singletonPatternExample();
 static void commandPattern();
 static void templateMethodPattern();
+static void iteratorMethodPattern();
 
 int main(void)
 {
@@ -53,6 +59,7 @@ int main(void)
 	singletonPatternExample();
 	commandPattern();
 	templateMethodPattern();
+	iteratorMethodPattern();
 }
 
 // Helper functions
@@ -206,12 +213,12 @@ static void commandPattern()
 	CeilingFan* ceilingFan = new CeilingFan();
 
 	// the commands, encapsulating the receiver calls
-	CommandGarageLightOn* garageLightOn = new CommandGarageLightOn(garageDoor);
-	CommandGarageLightOff* garageLightOff = new CommandGarageLightOff(garageDoor);
-	CommandCeilingFanHigh* fanHigh = new CommandCeilingFanHigh(ceilingFan);
-	CommandCeilingFanMedium* fanMedium = new CommandCeilingFanMedium(ceilingFan);
-	CommandCeilingFanLow* fanLow = new CommandCeilingFanLow(ceilingFan);
-	CommandCeilingFanOff* fanOff = new CommandCeilingFanOff(ceilingFan);
+	Command* garageLightOn = new CommandGarageLightOn(garageDoor);
+	Command* garageLightOff = new CommandGarageLightOff(garageDoor);
+	Command* fanHigh = new CommandCeilingFanHigh(ceilingFan);
+	Command* fanMedium = new CommandCeilingFanMedium(ceilingFan);
+	Command* fanLow = new CommandCeilingFanLow(ceilingFan);
+	Command* fanOff = new CommandCeilingFanOff(ceilingFan);
 
 	// the invoker
 	RemoteControl remoteControl;
@@ -258,10 +265,23 @@ changing the algorithm’s structure.
 */
 static void templateMethodPattern()
 {
-	std::cout << "Starting Template Method Pattern example" << std::endl;
+	std::cout << std::endl << "Starting Template Method Pattern example" << std::endl;
 	Tea* tea = new Tea();
 	Coffee* coffee = new Coffee();
 
 	tea->prepare();
 	coffee->prepare();
+}
+
+static void iteratorMethodPattern()
+{
+	std::cout << std::endl << "Starting Iterator Pattern example" << std::endl;
+
+	IMenu* pancakeHouseMenu = new PancakeHouseMenu;
+	IMenu* dinerMenu = new DinerMenu;
+	Waitress* waitress = new Waitress(pancakeHouseMenu);
+	
+	waitress->printMenu();
+	waitress->changeMenu(dinerMenu);
+	waitress->printMenu();
 }
