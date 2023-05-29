@@ -35,6 +35,9 @@
 #include "DinerMenu.h"
 #include "Waitress.h"
 
+// Composite pattern
+#include "FileSystemEntity.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -46,7 +49,8 @@ static void factoryPatternExample();
 static void singletonPatternExample();
 static void commandPattern();
 static void templateMethodPattern();
-static void iteratorMethodPattern();
+static void iteratorPattern();
+static void compositePattern();
 
 int main(void)
 {
@@ -59,7 +63,8 @@ int main(void)
 	singletonPatternExample();
 	commandPattern();
 	templateMethodPattern();
-	iteratorMethodPattern();
+	iteratorPattern();
+	compositePattern();
 }
 
 // Helper functions
@@ -273,7 +278,13 @@ static void templateMethodPattern()
 	coffee->prepare();
 }
 
-static void iteratorMethodPattern()
+/*
+The Iterator Pattern provides a way to
+access the elements of an aggregate object
+sequentially without exposing its underlying
+representation.
+*/
+static void iteratorPattern()
 {
 	std::cout << std::endl << "Starting Iterator Pattern example" << std::endl;
 
@@ -284,4 +295,38 @@ static void iteratorMethodPattern()
 	waitress->printMenu();
 	waitress->changeMenu(dinerMenu);
 	waitress->printMenu();
+}
+
+
+/*
+The Composite Pattern allows you to
+compose objects into tree structures to
+represent part-whole hierarchies. Composite
+lets clients treat individual objects and
+compositions of objects uniformly.
+*/
+static void compositePattern()
+{
+	std::cout << std::endl << "Starting Composite Pattern example" << std::endl;
+
+	// Create folders
+	Folder* myComputer = new Folder("My Computer");
+	Folder* myDocs = new Folder("My Documents");
+	Folder* myVideos = new Folder("My Videos");
+	Folder* myWorkFolder = new Folder("Work");
+	// Create files
+	File* myTextFile = new File("notes", "txt");
+	File* myWordDoc = new File("homework", "docx");
+	// Update files
+	myTextFile->writeContent("notes from 29/05/23");
+	myWordDoc->writeContent("Introduction: ");
+	// Add folders to root
+	myComputer->add(myDocs);
+	myComputer->add(myVideos);
+	// Add folder to sub folders
+	myDocs->add(myWorkFolder);
+	myDocs->add(myTextFile);
+	myWorkFolder->add(myWordDoc);
+	// Print file system
+	myComputer->printInfo();
 }

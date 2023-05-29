@@ -132,6 +132,7 @@
     <ClCompile Include="ChocolateBoiler.cpp" />
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="DinerMenu.cpp" />
+    <ClCompile Include="FileSystemEntity.cpp" />
     <ClCompile Include="IIterator.cpp" />
     <ClCompile Include="IMenu.cpp" />
     <ClCompile Include="MenuItem.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="ChocolateBoiler.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="DinerMenu.h" />
+    <ClInclude Include="FileSystemEntity.h" />
     <ClInclude Include="IIterator.h" />
     <ClInclude Include="IMenu.h" />
     <ClInclude Include="MenuItem.h" />
