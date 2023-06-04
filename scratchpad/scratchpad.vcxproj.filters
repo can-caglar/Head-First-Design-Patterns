@@ -37,6 +37,9 @@
     <Filter Include="Source Files\IteratorPattern">
       <UniqueIdentifier>{540025b4-082f-4148-b271-35ee54ba4b29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{2dc7c6d2-55b4-417a-8540-eb9866824a75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DuckBehaviours.cpp">
@@ -110,6 +113,15 @@
     </ClCompile>
     <ClCompile Include="MenuItem.cpp">
       <Filter>Source Files\IteratorPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystemEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mp3player.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Mp3States.cpp">
+      <Filter>Source Files\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +202,15 @@
     </ClInclude>
     <ClInclude Include="MenuItem.h">
       <Filter>Source Files\IteratorPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSystemEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mp3player.h">
+      <Filter>Source Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Mp3States.h">
+      <Filter>Source Files\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

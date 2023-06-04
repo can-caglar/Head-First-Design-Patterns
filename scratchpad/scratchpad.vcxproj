@@ -136,6 +136,8 @@
     <ClCompile Include="IIterator.cpp" />
     <ClCompile Include="IMenu.cpp" />
     <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="Mp3player.cpp" />
+    <ClCompile Include="Mp3States.cpp" />
     <ClCompile Include="PancakeHouseMenu.cpp" />
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -163,6 +165,8 @@
     <ClInclude Include="IIterator.h" />
     <ClInclude Include="IMenu.h" />
     <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="Mp3player.h" />
+    <ClInclude Include="Mp3States.h" />
     <ClInclude Include="PancakeHouseMenu.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Command.h" />

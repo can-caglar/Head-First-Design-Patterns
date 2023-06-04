@@ -38,6 +38,9 @@
 // Composite pattern
 #include "FileSystemEntity.h"
 
+// State pattern
+#include "Mp3player.h"
+
 // Helper functions
 void printToConsole(const char* str);
 
@@ -51,6 +54,7 @@ static void commandPattern();
 static void templateMethodPattern();
 static void iteratorPattern();
 static void compositePattern();
+static void statePattern();
 
 int main(void)
 {
@@ -65,6 +69,7 @@ int main(void)
 	templateMethodPattern();
 	iteratorPattern();
 	compositePattern();
+	statePattern();
 }
 
 // Helper functions
@@ -329,4 +334,32 @@ static void compositePattern()
 	myWorkFolder->add(myWordDoc);
 	// Print file system
 	myComputer->printInfo();
+}
+
+/*
+The State Pattern allows an object to alter its behavior
+when its internal state changes. The object will appear to
+change its class.
+*/
+static void statePattern()
+{
+	std::cout << std::endl << "Starting State Pattern example" << std::endl;
+
+	Mp3player* mp3player = new Mp3player({ "Thriller",
+		"Billie Jean",
+		"Beat it",
+		"Man in the Mirror",
+		"Black or White" });
+	
+	std::cout << *mp3player << std::endl;
+	mp3player->play();
+	std::cout << *mp3player << std::endl;
+	mp3player->pause();
+	std::cout << *mp3player << std::endl;
+	mp3player->forward();
+	std::cout << *mp3player << std::endl;
+	mp3player->play();
+	std::cout << *mp3player << std::endl;
+	mp3player->forward();
+	std::cout << *mp3player << std::endl;
 }
